@@ -165,7 +165,6 @@
 
     methods: {
       validate () {
-        this.sent = true
         if (this.$refs.form.validate()) {
           this.loading = true
           setTimeout(() => {
@@ -173,6 +172,7 @@
             this.submit()
             this.clear()
             this.loading = false
+            this.sent = true
           }, 1500);
         }
       },
