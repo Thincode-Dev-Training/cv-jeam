@@ -65,6 +65,7 @@
             ></v-textarea>
 
             <v-btn
+              :loading="loading"
               :disabled="!valid"
               color="blue lighten-2"
               class="mr-4"
@@ -81,6 +82,57 @@
               Clear Form
             </v-btn>
 
+            <v-dialog
+              v-model="loading"
+              hide-overlay
+              persistent
+              width="300"
+              height="200"
+            >
+              <v-card
+                color="primary"
+                dark
+                align-center
+                justify-center
+              >
+                <v-card-text>
+                  <br> Sending your comments ... <br>
+                  <v-progress-linear
+                    indeterminate
+                    color="white"
+                    class="info"
+                  ></v-progress-linear>
+                </v-card-text>
+              </v-card>
+            </v-dialog>
+
+            <v-dialog
+                v-model="sent"
+                max-width="290"
+              >
+                <v-card dark>
+                  <v-card-title class="headline">Comments sent</v-card-title>
+
+                  <v-card-text>
+                    Thank you for sharing your thoughts, I'm always happy to hear about what you think.
+                    If answer is needed I will try to respond as soon as I can.
+
+                    Regards!
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="cyan lighten-3"
+                      text
+                      @click="sent = false"
+                    >
+                      O K D K
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+
           </v-form>
         </v-flex>
       </v-layout>
@@ -90,6 +142,8 @@
 <script>
   export default {
     data: () => ({
+      loading: false,
+      sent: false,
       valid: true,
       name: '',
       nameRules: [
@@ -111,22 +165,22 @@
 
     methods: {
       validate () {
-        console.log("Entró a validate")
+        this.sent = true
         if (this.$refs.form.validate()) {
-        console.log("entró al if del validate")
-          this.snackbar = true
-          this.submit()
-          this.clear()
+          this.loading = true
+          setTimeout(() => {
+            this.snackbar = true
+            this.submit()
+            this.clear()
+            this.loading = false
+          }, 1500);
         }
       },
       clear () {
-        console.log("Entró a clear")
         this.$refs.form.reset()
       },
 
       submit() {
-        console.log("Entró a submit")
-
         let data = {
           from_name: this.name,
           from_mail: this.email,
