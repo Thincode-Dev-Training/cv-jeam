@@ -61,10 +61,10 @@
         <h1>12</h1>
       </v-flex>
       <v-flex class="secondary" xs6>
-        <h1>12</h1>
+        <h1>6</h1>
       </v-flex>
       <v-flex class="error" xs6>
-        <h1>12</h1>
+        <h1>6</h1>
       </v-flex>
     </v-layout>
 
