@@ -1,7 +1,7 @@
 <template>
     <v-container bg>
       <v-layout wrap class="mt-5" justify-center align-center>
-        <v-flex xs5>
+        <v-flex xs3>
           <v-btn text color="blue lighten-2" block x-large height="160px"
                  href="https://wa.me/5215534442209"
           >
@@ -30,9 +30,9 @@
              ... by e-Mail
           </v-btn>
         </v-flex>
-
-        <v-flex xs7>
-          <v-btn text color="blue lighten-2" block class="display-1" disabled="">
+        <v-flex xs1></v-flex>
+        <v-flex xs4>
+          <v-btn text color="blue lighten-2" block class="headline" disabled="">
             . . . or send me a message
           </v-btn>
           <v-form
@@ -43,7 +43,7 @@
           >
             <v-text-field
               v-model="name"
-              :counter="10"
+              :counter="15"
               :rules="nameRules"
               label="Name"
               required
@@ -94,7 +94,7 @@
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        v => (v && v.length <= 15) || 'Name must be less than 15 characters',
       ],
       email: '',
       emailRules: [
@@ -111,13 +111,49 @@
 
     methods: {
       validate () {
+        console.log("Entró a validate")
         if (this.$refs.form.validate()) {
+        console.log("entró al if del validate")
           this.snackbar = true
+          this.submit()
+          this.clear()
         }
       },
       clear () {
+        console.log("Entró a clear")
         this.$refs.form.reset()
+      },
+
+      submit() {
+        console.log("Entró a submit")
+
+        let data = {
+          from_name: this.name,
+          from_mail: this.email,
+          message: this.message
+        };
+
+        if (this.$refs.form.validate()) {
+          console.log("hola me estan por enviar");
+          emailjs.send("dicafis_gmail_com", "contact_cv_form", data).then(
+            function(Response) {
+              if (response.text === "OK") {
+                alert("El correo se ha enviado con éxito");
+              }
+              console.log(
+                "SUCCESS. status=%d, text=%s",
+                response.status,
+                resonse.text
+              );
+            },
+            function(err) {
+              alert("Ocurrio un problema al enviar  el correo");
+              console.log("FAILDED. error=", err);
+            }
+          );
+        }
       }
+
     },
   }
 </script>
