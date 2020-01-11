@@ -29,7 +29,7 @@
         <v-divider inset></v-divider>
         <v-list-item link :to="{name: 'home'}">
           <v-list-item-action>
-            <v-icon color="blue lighten-1">account_box</v-icon>
+            <v-icon color="blue lighten-1">fas fa-user-astronaut</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>About me</v-list-item-title>
@@ -39,10 +39,20 @@
         <v-divider inset></v-divider>
         <v-list-item link :to="{name: 'contact'}">
           <v-list-item-action>
-            <v-icon color="blue lighten-1">mdi-phone-classic</v-icon>
+            <v-icon color="blue lighten-1">fas fa-hand-spock</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Contact me</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider inset></v-divider>
+        <v-list-item link :to="{name: 'details'}">
+          <v-list-item-action>
+            <v-icon color="blue lighten-1">fas fa-paste</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Details</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -66,15 +76,6 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider inset></v-divider>
-        <v-list-item link :to="{name: 'details'}">
-          <v-list-item-action>
-            <v-icon color="blue lighten-1">mdi-account-details</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Details</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
       </v-list>
 
     </v-navigation-drawer>

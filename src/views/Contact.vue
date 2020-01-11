@@ -3,28 +3,28 @@
       <v-layout wrap class="mt-5" justify-center align-center>
         <v-flex xs3>
           <v-btn text color="blue lighten-2" block x-large height="160px"
-                 href="https://wa.me/5215534442209"
+                 href="https://wa.me/5215516473758" target="_blank" rel="noopener"
           >
             <v-icon color="cyan lighten-3" left large>mdi-cellphone-android</v-icon>
             ... 55 1647 3758
           </v-btn>
 
           <v-btn text color="blue lighten-2" block x-large height="160px"
-                 href="https://www.facebook.com/julio.acevedo.39589149"
+                 href="https://www.facebook.com/julio.acevedo.39589149" target="_blank" rel="noopener"
           >
             <v-icon color="cyan lighten-3" left large>mdi-facebook</v-icon>
             ... by FaceBook
           </v-btn>
 
           <v-btn text color="blue lighten-2" block x-large height="160px"
-                 href="https://twitter.com/dicafis"
+                 href="https://twitter.com/dicafis" target="_blank" rel="noopener"
           >
             <v-icon color="cyan lighten-3" left large>mdi-twitter</v-icon>
             ... by Twitter
           </v-btn>
 
           <v-btn text color="blue lighten-2" block x-large height="160px"
-                 href="mailto:julio.acevedo@thincode.com"
+                 href="mailto:julio.acevedo@thincode.com" target="_blank" rel="noopener"
           >
             <v-icon color="cyan lighten-3" left large>mdi-email</v-icon>
              ... by e-Mail
@@ -35,6 +35,7 @@
           <v-btn text color="blue lighten-2" block class="headline" disabled="">
             . . . or send me a message
           </v-btn>
+
           <v-form
             class="mt-10"
             ref="form"
@@ -173,7 +174,7 @@
             this.clear()
             this.loading = false
             this.sent = true
-          }, 1500);
+          }, 2000);
         }
       },
       clear () {
@@ -188,7 +189,6 @@
         };
 
         if (this.$refs.form.validate()) {
-          console.log("hola me estan por enviar");
           emailjs.send("dicafis_gmail_com", "contact_cv_form", data).then(
             function(Response) {
               if (response.text === "OK") {
