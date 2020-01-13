@@ -8,8 +8,8 @@
     >
       <v-layout mt-4 column align-center>
         <v-flex>
-          <v-avatar height="200" width="200">
-            <img src="https://st2.depositphotos.com/6306424/11185/v/950/depositphotos_111854282-stock-illustration-cartoon-mime-performance.jpg" alt="">
+          <v-avatar height="200" width="200" style="border-radius: 50px; max-width: 100%; height: auto; margin-bottom: 30">
+            <img src="profile_photo.jpeg" alt="">
           </v-avatar>
         </v-flex>
 
